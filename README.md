@@ -16,6 +16,8 @@ In this example, our null hypothesis states that there is no significant differe
 
 In ```example.py```, you will find the implementation of a two-sample chi-square test, including the generation of fake data as well as the determination of the minimum sample size.
 
+*If you like this course, please consider giving me a star!*
+
 ## How to run full example?
 
 Run the following:
@@ -23,3 +25,7 @@ Run the following:
 ```
 python example.py
 ```
+
+## Extra
+
+If you wish to learn how to perform a data analysis in Python, check out my free course [here](https://github.com/jbossios/python-tutorial).

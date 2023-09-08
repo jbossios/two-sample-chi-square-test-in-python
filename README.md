@@ -28,4 +28,6 @@ python example.py
 
 ## Extra
 
+If you wish to know how to implement a two-sample t-test in Python, check out [this example](https://github.com/jbossios/two-sample-t-test-in-python).
+
 If you wish to learn how to perform a data analysis in Python, check out my free course [here](https://github.com/jbossios/python-tutorial).

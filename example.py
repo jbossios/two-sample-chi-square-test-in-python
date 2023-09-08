@@ -78,11 +78,11 @@ def main() -> None:
     # Perform the chi-squared test
     stat, pvalue, _, _ = chi2_contingency(data, correction = False)  # correction = False (none of the expected counts is smaller than 5)
     if pvalue < alpha:
-        print(f"Decision: There is a significant difference between the groups (p-value = {pvalue}, chi2-statistics = {round(stat, 2)}).")
+        print(f"Decision: There is a significant difference between the groups (p-value = {pvalue}, chi2-statistic = {round(stat, 2)}).")
     else:
-        print(f"Decision: There is no significant difference between the groups (p-value = {pvalue}, chi2-statistics = {round(stat, 2)}).")
+        print(f"Decision: There is no significant difference between the groups (p-value = {pvalue}, chi2-statistic = {round(stat, 2)}).")
 
-    # Let's calculate the chi2-statistics by hand
+    # Let's calculate the chi2-statistic by hand
     dof = 1  # degrees of freedom = (r-1)(c-1), where r=#rows and c=#columns
     # If the null hypothesis is true, then there would be no significant difference b/w groups A and B
     # Under that assumption, we can use the observed values to calculate the expected ratio of conversions
@@ -93,12 +93,12 @@ def main() -> None:
     exp = np.array([[expected_0, expected_1], [expected_0, expected_1]])  # expected values
     terms = (obs - exp) ** 2 / exp
     my_stat = terms.sum(axis = None)
-    print(f'chi2-statistics calculated by hand = {round(my_stat, 2)}')
+    print(f'chi2-statistic calculated by hand = {round(my_stat, 2)}')
    
-    # Let's calculate the critical chi2-statistics
+    # Let's calculate the critical chi2-statistic
     critical_chi2_stat = round(chi2.ppf(1 - alpha, dof), 2)  # ppf = percent point function (inverse of the cumulative distribution function)
     print(f'{critical_chi2_stat = }')
-    # note: we need to get a chi2-statistics higher than this critical chi2-statistics value to reject the null hypothesis
+    # note: we need to get a chi2-statistic higher than this critical chi2-statistic value to reject the null hypothesis
     
     my_pvalue = chi2.sf(my_stat, dof)  # 1 - cdf, where cdf = cumulative distribution function = P(X <= x) = probability that X will have a value <= x
     print(f'p-value calculated by hand = {my_pvalue}') 
@@ -115,9 +115,9 @@ def main() -> None:
     # Perform the chi-squared test
     stat, pvalue, _, _ = chi2_contingency(data, correction = False)  # correction = False (none of the expected counts is smaller than 5)
     if pvalue < alpha:
-        print(f"Decision: There is a significant difference between the groups (p-value = {round(pvalue, 3)}, chi2-statistics = {round(stat, 2)}).")
+        print(f"Decision: There is a significant difference between the groups (p-value = {round(pvalue, 3)}, chi2-statistic = {round(stat, 2)}).")
     else:
-        print(f"Decision: There is no significant difference between the groups (p-value = {round(pvalue, 3)}, chi2-statistics = {round(stat, 2)}).")
+        print(f"Decision: There is no significant difference between the groups (p-value = {round(pvalue, 3)}, chi2-statistic = {round(stat, 2)}).")
 
 
 if __name__ == '__main__':
